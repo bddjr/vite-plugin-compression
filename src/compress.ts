@@ -72,8 +72,11 @@ export const defaultCompressionOptions: {
   deflateRaw: {
     level: zlib.constants.Z_BEST_COMPRESSION
   },
-  // I don't know what the best default options for zstd are, so using an empty object
-  zstandard: {}
+  zstandard: {
+    params: {
+      [zlib.constants.ZSTD_c_compressionLevel]: 22
+    }
+  }
 }
 
 interface TarballOptions {
